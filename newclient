@@ -1,0 +1,46 @@
+#!/usr/bin/env bash
+
+oldpwd=$PWD
+
+CA_PATH=/etc/openvpn/easy-rsa/pki
+CRT_PATH=/etc/openvpn/easy-rsa/pki/issued
+KEY_PATH=/etc/openvpn/easy-rsa/pki/private
+BASE_CONFIG=/etc/openvpn/client/base.conf
+OUTPUT_DIR=/etc/openvpn/client/${1}
+
+cd /etc/openvpn/easy-rsa/
+./easyrsa build-client-full ${1}
+
+mkdir $OUTPUT_DIR
+
+cat ${BASE_CONFIG} \
+<(echo -e '<ca>') \
+${CA_PATH}/ca.crt \
+<(echo -e '</ca>\n<cert>') \
+${CRT_PATH}/${1}.crt \
+<(echo -e '</cert>\n<key>') \
+${KEY_PATH}/${1}.key \
+<(echo -e '</key>\n<tls-auth>') \
+${CA_PATH}/ta.key \
+<(echo -e '</tls-auth>') \
+> ${OUTPUT_DIR}/${1}-udp.ovpn
+
+cat ${BASE_CONFIG} \
+<(echo -e '<ca>') \
+${CA_PATH}/ca.crt \
+<(echo -e '</ca>\n<cert>') \
+${CRT_PATH}/${1}.crt \
+<(echo -e '</cert>\n<key>') \
+${KEY_PATH}/${1}.key \
+<(echo -e '</key>\n<tls-auth>') \
+${CA_PATH}/ta.key \
+<(echo -e '</tls-auth>') \
+> ${OUTPUT_DIR}/${1}-tcp.ovpn
+
+
+sed -i -e 's/PROTO/udp/' ${OUTPUT_DIR}/${1}-udp.ovpn
+sed -i -e 's/PORT/1194/' ${OUTPUT_DIR}/${1}-udp.ovpn
+sed -i -e 's/PROTO/tcp/' ${OUTPUT_DIR}/${1}-tcp.ovpn
+sed -i -e 's/PORT/443/' ${OUTPUT_DIR}/${1}-tcp.ovpn
+
+cd ${oldpwd}
