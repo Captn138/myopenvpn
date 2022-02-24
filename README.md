@@ -1,6 +1,8 @@
 # myopenvpn
 Collection of configuration files for a simple OpenVPN server over TCP/443 and UDP/1194 and client
 
+## TODO
+ - Unifier toute la configuration serveur et client en un seul fichier
 
 ## Prerequisites
 ### Install OpenVPN
