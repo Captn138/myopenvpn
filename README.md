@@ -12,7 +12,7 @@ Generally bundled with OpenVPN, else see [the GitHub](https://github.com/OpenVPN
 
 Copy or link the directory to `/etc/openvpn/easy-rsa`.
 
-⚠️ The paths I use for Easy-RSA are the paths I used for my configuration. You can use other paths, but don't forget to change them in every file. ⚠️
+⚠️ The paths I use here for Easy-RSA are the paths I used for my configuration. You can use other paths, but don't forget to change them in every file. ⚠️
 
 
 ### Download this repo
@@ -21,7 +21,7 @@ Place the `tcpserver.conf` and/or `udpserver.conf` in the `/etc/openvpn/server` 
 place the `base.conf` and `newclient` in the `/etc/openvpn/client`directory.
 
 
-## Generate server secrets
+## Generate server secrets
 Go into your easy-rsa directory:
 ```sh
 cd /etc/openvpn/easy-rsa
