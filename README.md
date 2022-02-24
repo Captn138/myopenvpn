@@ -42,7 +42,7 @@ Build your Diffie-Hellman parameters (here `dh` is the name you give to the file
 ```sh
 ./easyrsa gen-dh dh
 ```
-OPTIONAL: Generate a TLS key (if you don't want to use a TLS key, don't forget to remove the `tls-auth`, `cypher` and `key-direction`from every file):
+OPTIONAL: Generate a TLS key (if you don't want to use a TLS key, don't forget to remove the `tls-auth`, `cypher`, `remote-cert-tls` and `key-direction`from every file):
 ```sh
 openvpn --genkey --secret ta.key
 ```
