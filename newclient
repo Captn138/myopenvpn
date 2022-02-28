@@ -2,7 +2,7 @@
 
 oldpwd=$PWD
 
-CA_PATH=/etc/openvpn/easy-rsa/pki
+PKI_PATH=/etc/openvpn/easy-rsa/pki
 CRT_PATH=/etc/openvpn/easy-rsa/pki/issued
 KEY_PATH=/etc/openvpn/easy-rsa/pki/private
 BASE_CONFIG=/etc/openvpn/client/base.conf
@@ -15,25 +15,25 @@ mkdir $OUTPUT_DIR
 
 cat ${BASE_CONFIG} \
 <(echo -e '<ca>') \
-${CA_PATH}/ca.crt \
+${PKI_PATH}/ca.crt \
 <(echo -e '</ca>\n<cert>') \
 ${CRT_PATH}/${1}.crt \
 <(echo -e '</cert>\n<key>') \
 ${KEY_PATH}/${1}.key \
 <(echo -e '</key>\n<tls-auth>') \
-${CA_PATH}/ta.key \
+${PKI_PATH}/ta.key \
 <(echo -e '</tls-auth>') \
 > ${OUTPUT_DIR}/${1}-udp.ovpn
 
 cat ${BASE_CONFIG} \
 <(echo -e '<ca>') \
-${CA_PATH}/ca.crt \
+${PKI_PATH}/ca.crt \
 <(echo -e '</ca>\n<cert>') \
 ${CRT_PATH}/${1}.crt \
 <(echo -e '</cert>\n<key>') \
 ${KEY_PATH}/${1}.key \
 <(echo -e '</key>\n<tls-auth>') \
-${CA_PATH}/ta.key \
+${PKI_PATH}/ta.key \
 <(echo -e '</tls-auth>') \
 > ${OUTPUT_DIR}/${1}-tcp.ovpn
 
