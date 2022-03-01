@@ -1,6 +1,9 @@
 # myopenvpn
 Collection of configuration files for a simple OpenVPN server over TCP/443 and UDP/1194 and client
 
+⚠️ | Windows users: follow the tutorial at https://shebangthedolphins.net/fr/vpn_openvpn_windows_server.html (french)
+:---: | :---
+
 ## TODO
  - Unifier toute la configuration serveur et client en un seul fichier
 
@@ -14,7 +17,9 @@ Generally bundled with OpenVPN, else see [the GitHub](https://github.com/OpenVPN
 
 Copy or link the directory to `/etc/openvpn/easy-rsa`.
 
-⚠️ The paths I use here for Easy-RSA are the paths I used for my configuration. You can use other paths, but don't forget to change them in every file. ⚠️
+⚠️ | The paths I use here for Easy-RSA are the paths I used for my configuration. You can use other paths, but don't forget to change them in every file.
+ℹ️ | New client script in newclient.ps1
+:---: | :---
 
 
 ### Download this repo
@@ -70,6 +75,7 @@ and
 ```sh
 /usr/sbin/openvpn ètc/openvpn/client/server/udpserver.conf
 ```
-⚠️ This command must be run as root ⚠️
+⚠️ | This command must be run as root
+:---: | :---
 
 I strongly recommand setting up a systemd service (with User=root and Wants=network-online.target).
