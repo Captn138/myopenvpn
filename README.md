@@ -18,8 +18,8 @@ Generally bundled with OpenVPN, else see [the GitHub](https://github.com/OpenVPN
 Copy or link the directory to `/etc/openvpn/easy-rsa`.
 
 ⚠️ | The paths I use here for Easy-RSA are the paths I used for my configuration. You can use other paths, but don't forget to change them in every file.
-ℹ️ | New client script in newclient.ps1
 :---: | :---
+ℹ️ | New client script in newclient.ps1
 
 
 ### Download this repo
