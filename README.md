@@ -21,6 +21,9 @@ Copy or link the directory to `/etc/openvpn/easy-rsa`.
 :---: | :---
 ℹ️ | New client script in newclient.ps1
 
+### Install iptables
+Generally available with every package manager.
+
 
 ### Download this repo
 Place the `tcpserver.conf` and/or `udpserver.conf` in the `/etc/openvpn/server` directory. In my configuration, I run both server so I can have a fallback TCP/443 VPN when UDP/1194 is unavailable (mostly due to firewalls restrictions). Feel free to look at my scripts and modify them according to your needs.
@@ -79,3 +82,25 @@ and
 :---: | :---
 
 I strongly recommand setting up a systemd service (with User=root and Wants=network-online.target).
+
+## Enable traffic forwarding
+
+### IP forwarding
+To enable ip forwarding, run
+```sh
+sysctl -w net.ipv4.ip_forward=1
+```
+and to make it a permanent setting, run
+```sh
+sed -i 's/\#net.ipv4.ip_forward = 1/net.ipv4.ip_forward = 1/g' /etc/sysctl.conf
+```
+
+### NAT
+To enable NAT for your virtual network, run
+```sh
+iptables -I FORWARD -i tun0 -s 10.8.0.0/24 -j ACCEPT
+iptables -t nat -I POSTROUTING -s 10.8.0.0/24 -j MASQUERADE
+```
+where here tun0 is the virtual interface bound to my virtual network 10.8.0.0/24.
+
+No need to restart the server after that.
