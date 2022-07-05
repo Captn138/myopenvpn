@@ -19,7 +19,6 @@ Copy or link the directory to `/etc/openvpn/easy-rsa`.
 
 ⚠️ | The paths I use here for Easy-RSA are the paths I used for my configuration. You can use other paths, but don't forget to change them in every file.
 :---: | :---
-ℹ️ | New client script in newclient.ps1
 
 ### Install iptables
 Generally available with every package manager.
