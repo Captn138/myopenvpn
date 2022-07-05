@@ -66,7 +66,7 @@ Use my script to generate a client file (in this example, we'll call it `cli01`)
 ```sh
 ./newclient cli01
 ```
-The generated `.ovpn` files will be stored in `ètc/openvpn/client/cli01/cli01-tcp.ovpn` and `ètc/openvpn/client/cli01/cli01-udp.ovpn`. These are the only files you need to copy to your client.
+The generated `.ovpn` files will be stored in `/etc/openvpn/client/cli01/cli01-tcp.ovpn` and `/etc/openvpn/client/cli01/cli01-udp.ovpn`. These are the only files you need to copy to your client.
 
 
 ## Start the server
