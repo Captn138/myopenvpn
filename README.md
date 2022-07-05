@@ -104,3 +104,5 @@ iptables -t nat -I POSTROUTING -s 10.8.0.0/24 -j MASQUERADE
 where here tun0 is the virtual interface bound to my virtual network 10.8.0.0/24.
 
 No need to restart the server after that.
+
+To make these iptables rules persistent accross reboots, take a look at what your distro can use, such as iptables-persistent for example.
