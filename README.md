@@ -1,7 +1,7 @@
 # myopenvpn
 Collection of configuration files for a simple OpenVPN server over TCP/443 and UDP/1194 and client
 
-⚠️ | Windows users: follow the tutorial at https://shebangthedolphins.net/fr/vpn_openvpn_windows_server.html (french)
+⚠️ | Windows users: follow the tutorial at https://shebangthedolphins.net/fr/vpn_openvpn_windows_server.html (french). I added a newclient.ps1 script in this repo.
 :---: | :---
 
 ## TODO
