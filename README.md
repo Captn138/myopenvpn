@@ -72,11 +72,11 @@ The generated `.ovpn` files will be stored in `/etc/openvpn/client/cli01/cli01-t
 ## Start the server
 The command to start the server is the following:
 ```sh
-/usr/sbin/openvpn ètc/openvpn/client/server/tcpserver.conf
+/usr/sbin/openvpn /etc/openvpn/client/server/tcpserver.conf
 ```
 and
 ```sh
-/usr/sbin/openvpn ètc/openvpn/client/server/udpserver.conf
+/usr/sbin/openvpn /etc/openvpn/client/server/udpserver.conf
 ```
 ⚠️ | This command must be run as root
 :---: | :---
